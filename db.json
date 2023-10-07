@@ -1,0 +1,39 @@
+{
+    "athletes": [
+      {
+        "id": 1,
+        "name": "Sha'Carri Richardson",
+        "image": "https://media.aws.iaaf.org/athletes/14717691.jpg",
+        "event": "100m",
+        "time": "10.80"
+      },
+      {
+        "id": 2,
+        "name": "Gabrielle Thomas",
+        "image": "https://media.aws.iaaf.org/athletes/14733520.jpg",
+        "event": "200m",
+        "time": "21.60"
+      },
+      {
+        "id": 3,
+        "name": "Shamier Little",
+        "image": "https://media.aws.iaaf.org/athletes/14443767.jpg",
+        "event": "400m",
+        "time": "50.64"
+      },
+      {
+        "id": 4,
+        "name": "Athing Mu",
+        "image": "https://media.aws.iaaf.org/athletes/14708132.jpg",
+        "event": "800m",
+        "time": "1:54.97"
+      },
+      {
+        "id": 5,
+        "name": "Cory Ann McGee",
+        "image": "https://media.aws.iaaf.org/athletes/14316538.jpg",
+        "event": "1500m",
+        "time": "4:02:71"
+      }
+    ]
+  }
