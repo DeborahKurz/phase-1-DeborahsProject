@@ -1,0 +1,27 @@
+body {
+    text-align: center;
+    padding: 20px;
+    background-image: url('img/Phase 1 Project Background.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.allInfo {
+    float: left;
+    padding: 45px;
+    text-align: center;
+
+}
+
+.athleteCard {
+    float: left;
+    padding: 0px;
+    text-align: center;
+    background-color: rgb(242, 242, 242);
+}
+
+.athleteInfo {
+    float: left;
+    padding: 10px;
+    text-align: center;
+}
