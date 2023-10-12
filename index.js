@@ -62,6 +62,12 @@ const twoHBtn =  document.getElementById("twoH");
 const fourHBtn = document.getElementById("fourH");
 const eightHBtn = document.getElementById("eightH");
 
+allBtn.addEventListener("mouseover", ()=> console.log("I was mousedover"));
+oneHBtn.addEventListener("mouseover", ()=> console.log("I was mousedover"));
+twoHBtn.addEventListener("mouseover", ()=> console.log("I was mousedover"));
+fourHBtn.addEventListener("mouseover", ()=> console.log("I was mousedover"));
+eightHBtn.addEventListener("mouseover", ()=> console.log("I was mousedover"));
+
 allBtn.addEventListener("click", ()=> console.log("I was clicked"));
 oneHBtn.addEventListener("click", ()=> console.log("I was clicked"));
 twoHBtn.addEventListener("click", ()=> console.log("I was clicked"));
