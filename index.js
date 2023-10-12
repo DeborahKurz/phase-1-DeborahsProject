@@ -1,20 +1,19 @@
-document.addEventListener("DOMContentLoaded",()=>console.log(filterList))
-
+//All Data Fetch
 fetch('http://localhost:3000/athletes')
     .then((resp)=>resp.json())
     .then(function(data) {
         const parentDiv = document.getElementById("athleteDiv");
+
         for(const item of data){
             const newDiv = document.createElement("div");
-            newDiv.classname = "athleteCard";
-            newDiv.setAttribute("id", item.event);
+
+            newDiv.className = item.event;
+            newDiv.hidden = true;
             parentDiv.appendChild(newDiv);
 
-            newDiv.className = "allInfo";
-
             let h3 = document.createElement("h3");
-            let infoDiv = document.createElement("main")
-            newDiv.append(h3, infoDiv)
+            let infoDiv = document.createElement("main");
+            newDiv.append(h3, infoDiv);
 
             h3.textContent = item.event;
             infoDiv.className = "athleteCard";
@@ -53,10 +52,16 @@ fetch('http://localhost:3000/athletes')
             button.className = "closeCard";
             button.textContent = " X ";
         }
+
     })
+document.getElementById("100meter").addEventListener("click", ()=> {
+    document.getElementsByClassName("100m").forEach((item)=>{
+       item.hidden = false;
+    });
+});
 
-
-
+    console.log(document.getElementById("100meter"))
+    console.log(document.getElementsByClassName("100m"))
 
 
 
@@ -121,22 +126,20 @@ fetch('http://localhost:3000/athletes')
 // A. DOM Structure
 // DONE 1) Create Divs
 // DONE 2) Add Headers
-// 3) Review buttons
+// DONE 3) Review buttons
 // DONE 4) Add filter button
 // DONE 5) Get filter Button working
 // 6) Figure out how to attach the json data to the filter options
 
 // B. JS DOM Divs
-// 1) Review how to add HTML elements with JS.
-// 2) Create a function that will create a div for the athlete "cards"
+// DONE 1) Review how to add HTML elements with JS.
+// DONE 2) Create a function that will create a div for the athlete "cards"
 // 3) Use forEach() to put the json data into a div on the DOM
-// function forEach(data){
-//     let objects = Objects.values
-// }
-// 4) Get the cards working
+// DONE 4) Get the cards working
 
 // C. Event Listeners w/ their own callback functions
 // 1) Create the remove button to remove cards
 // 2) Add something that will remove all the cards when "all" is selected from the filter
 // 3) Add something that will show all the athletes when "all" is selected
 // 4) Add a mouseover event that tells you what placing the athlete is in (1st,2nd, or 3rd)
+
