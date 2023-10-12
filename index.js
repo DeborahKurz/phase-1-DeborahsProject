@@ -56,9 +56,20 @@ fetch('http://localhost:3000/athletes')
     });
 
 
+const allBtn = document.getElementById("all");
+const oneHBtn = document.getElementById("oneH");
+const twoHBtn =  document.getElementById("twoH");
+const fourHBtn = document.getElementById("fourH");
+const eightHBtn = document.getElementById("eightH");
+
+allBtn.addEventListener("click", ()=> console.log("I was clicked"));
+oneHBtn.addEventListener("click", ()=> console.log("I was clicked"));
+twoHBtn.addEventListener("click", ()=> console.log("I was clicked"));
+fourHBtn.addEventListener("click", ()=> console.log("I was clicked"));
+eightHBtn.addEventListener("click", ()=> console.log("I was clicked"));
 
 
-    
+
 // document.addEventListener('DOMContentLoaded', ()=> {
 //     document.
 // })
