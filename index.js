@@ -53,15 +53,33 @@ fetch('http://localhost:3000/athletes')
             button.textContent = " X ";
         }
 
-    })
-document.getElementById("100meter").addEventListener("click", ()=> {
-    document.getElementsByClassName("100m").forEach((item)=>{
-       item.hidden = false;
     });
-});
 
-    console.log(document.getElementById("100meter"))
-    console.log(document.getElementsByClassName("100m"))
+
+
+
+    
+// document.addEventListener('DOMContentLoaded', ()=> {
+//     document.
+// })
+
+// document.getElementById("100meter").addEventListener("click", ()=> console.log("I was clicked"));
+// ()=> {
+//     let array = document.getElementsByClassName("100m");
+//     let modifiedArray = array.map(function(element){
+//         element.hidden = false;
+//         console.log(element);
+//     })
+    // oneH.map(function(item){
+    //     item.hidden = false;
+    // })
+    // document.getElementsByClassName("100m").forEach((item)=>{
+    //    item.hidden = false;
+    // });
+// });
+
+    // console.log(document.getElementById("100meter").addEventListener("click", ()=> console.log("I was clicked")));
+    // console.log(document.getElementsByClassName("100m"))
 
 
 
