@@ -61,12 +61,61 @@ const oneHBtn = document.getElementById("oneH");
 const twoHBtn =  document.getElementById("twoH");
 const fourHBtn = document.getElementById("fourH");
 const eightHBtn = document.getElementById("eightH");
+//
+allBtn.addEventListener("mouseover", ()=> {
+    allBtn.style.backgroundColor = 'rgb(62, 61, 61)';
+    allBtn.style.color = 'white';
+});
+allBtn.addEventListener("mouseout", ()=> {
+    allBtn.style.backgroundColor = "";
+    allBtn.style.color = "";
+});
+//
+oneHBtn.addEventListener("mouseover", ()=> {
+    oneHBtn.style.backgroundColor = 'rgb(62, 61, 61)';
+    oneHBtn.style.color = 'white';
+});
+oneHBtn.addEventListener("mouseout", ()=> {
+    oneHBtn.style.backgroundColor = "";
+    oneHBtn.style.color = "";
+});
+//
+twoHBtn.addEventListener("mouseover", ()=> {
+    twoHBtn.style.backgroundColor = 'rgb(62, 61, 61)';
+    twoHBtn.style.color = 'white';
+});
+twoHBtn.addEventListener("mouseout", ()=> {
+    twoHBtn.style.backgroundColor = "";
+    twoHBtn.style.color = "";
+});
+//
+fourHBtn.addEventListener("mouseover", ()=> {
+    fourHBtn.style.backgroundColor = 'rgb(62, 61, 61)';
+    fourHBtn.style.color = 'white';
+});
+fourHBtn.addEventListener("mouseout", ()=> {
+    fourHBtn.style.backgroundColor = "";
+    fourHBtn.style.color = "";
+});
+//
+eightHBtn.addEventListener("mouseover", ()=> {
+    eightHBtn.style.backgroundColor = 'rgb(62, 61, 61)';
+    eightHBtn.style.color = 'white';
+});
+eightHBtn.addEventListener("mouseout", ()=> {
+    eightHBtn.style.backgroundColor = "";
+    eightHBtn.style.color = "";
+});
+//
+// function buttonStyle(){
+//     allBtn.style.backgroundColor = 'rgb(62, 61, 61)';
+//     allBtn.style.color = 'white';
+// }
+// function buttonUnstyle(){
+//         allBtn.style.backgroundColor = "";
+//     allBtn.style.color = "";
+// }
 
-allBtn.addEventListener("mouseover", ()=> console.log("I was mousedover"));
-oneHBtn.addEventListener("mouseover", ()=> console.log("I was mousedover"));
-twoHBtn.addEventListener("mouseover", ()=> console.log("I was mousedover"));
-fourHBtn.addEventListener("mouseover", ()=> console.log("I was mousedover"));
-eightHBtn.addEventListener("mouseover", ()=> console.log("I was mousedover"));
 
 allBtn.addEventListener("click", ()=> console.log("I was clicked"));
 oneHBtn.addEventListener("click", ()=> console.log("I was clicked"));
