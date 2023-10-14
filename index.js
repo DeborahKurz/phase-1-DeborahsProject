@@ -2,13 +2,40 @@
 fetch('http://localhost:3000/athletes')
     .then((resp)=>resp.json())
     .then(function(data) {
-        const parentDiv = document.getElementById("athleteDiv");
+        console.log(data)
+        const allAthletes = document.getElementsByClassName("allAthletes");
+        const twoHAthletes = document.getElementsByClassName("200m");
+        const fourHAthletes = document.getElementsByClassName("400m");
+        const eightHAthletes = document.getElementsByClassName("800m");
 
+        allBtn.addEventListener("click", (data)=> {
+            return makeDiv(data);
+        });
+        
+        // oneHBtn.addEventListener("click", (data)=> {
+        //     let dataArray = data.map(function(dataArray){
+        //         if(dataArray.event === "100m"){
+        //             let newArray = [];
+        //             newArray.push(item);
+        //             return makeDiv(newArray);
+        //         }
+        //     })
+        // })
+
+
+        // });
+        
+       
+        // twoHBtn.addEventListener("click", ()=> console.log("I was clicked"));
+        // fourHBtn.addEventListener("click", ()=> console.log("I was clicked"));
+        // eightHBtn.addEventListener("click", ()=> console.log("I was clicked"));
+
+    function makeDiv(){
+        const parentDiv = document.getElementById("athleteDiv");
         for(const item of data){
             const newDiv = document.createElement("div");
 
-            newDiv.className = item.event;
-            newDiv.hidden = true;
+            newDiv.classList.add(item.event, 'allAthletes');
             parentDiv.appendChild(newDiv);
 
             let h3 = document.createElement("h3");
@@ -52,9 +79,8 @@ fetch('http://localhost:3000/athletes')
             button.className = "closeCard";
             button.textContent = " X ";
         }
-
+    };
     });
-
 
 const allBtn = document.getElementById("all");
 const oneHBtn = document.getElementById("oneH");
@@ -106,70 +132,26 @@ eightHBtn.addEventListener("mouseout", ()=> {
     eightHBtn.style.backgroundColor = "";
     eightHBtn.style.color = "";
 });
-//
-// function buttonStyle(){
-//     allBtn.style.backgroundColor = 'rgb(62, 61, 61)';
-//     allBtn.style.color = 'white';
-// }
-// function buttonUnstyle(){
-//         allBtn.style.backgroundColor = "";
-//     allBtn.style.color = "";
-// }
-
-
-allBtn.addEventListener("click", ()=> console.log("I was clicked"));
-oneHBtn.addEventListener("click", ()=> console.log("I was clicked"));
-twoHBtn.addEventListener("click", ()=> console.log("I was clicked"));
-fourHBtn.addEventListener("click", ()=> console.log("I was clicked"));
-eightHBtn.addEventListener("click", ()=> console.log("I was clicked"));
 
 
 
-// document.addEventListener('DOMContentLoaded', ()=> {
-//     document.
-// })
 
-// document.getElementById("100meter").addEventListener("click", ()=> console.log("I was clicked"));
-// ()=> {
-//     let array = document.getElementsByClassName("100m");
-//     let modifiedArray = array.map(function(element){
-//         element.hidden = false;
-//         console.log(element);
-//     })
-    // oneH.map(function(item){
-    //     item.hidden = false;
-    // })
-    // document.getElementsByClassName("100m").forEach((item)=>{
-    //    item.hidden = false;
-    // });
+
+
+
+// oneHBtn.addEventListener("click", (oneHAthletes)=> {
+//     // let toArray = Array.isArray(oneHAthletes) ? oneHAthletes : Object.values(oneHAthletes);
+//     // oneHAthletes.innerHTML = "";
+//     console.log("I was clicked");
+//     return oneHAthletes;
+//     // toArray.forEach(() => {
+//     //     toArray.type = "";
+//     //     // item.type === hidden
+//     // })
+//     // 
+//     // return toArray;
+
 // });
-
-    // console.log(document.getElementById("100meter").addEventListener("click", ()=> console.log("I was clicked")));
-    // console.log(document.getElementsByClassName("100m"))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -226,4 +208,3 @@ eightHBtn.addEventListener("click", ()=> console.log("I was clicked"));
 // 2) Add something that will remove all the cards when "all" is selected from the filter
 // 3) Add something that will show all the athletes when "all" is selected
 // 4) Add a mouseover event that tells you what placing the athlete is in (1st,2nd, or 3rd)
-
