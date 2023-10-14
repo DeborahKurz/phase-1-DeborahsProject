@@ -2,7 +2,7 @@
 fetch('http://localhost:3000/athletes')
     .then((resp)=>resp.json())
     .then(function(data) {
-        // console.log(data)
+
         const allAthletes = document.getElementsByClassName("allAthletes");
         const twoHAthletes = document.getElementsByClassName("200m");
         const fourHAthletes = document.getElementsByClassName("400m");
@@ -23,12 +23,39 @@ fetch('http://localhost:3000/athletes')
                     };
             });
         });
+
+        twoHBtn.addEventListener("click", function(data){
+            dataArray.forEach(object => {
+                    if(object.event === "200m"){
+                        let newArray = [];
+                        newArray.push(object);
+                        return makeDiv(newArray);
+                    };
+            });
+        });
+
+        fourHBtn.addEventListener("click", function(data){
+            dataArray.forEach(object => {
+                    if(object.event === "400m"){
+                        let newArray = [];
+                        newArray.push(object);
+                        return makeDiv(newArray);
+                    };
+            });
+        });
+
+        eightHBtn.addEventListener("click", function(data){
+            dataArray.forEach(object => {
+                    if(object.event === "800m"){
+                        let newArray = [];
+                        newArray.push(object);
+                        return makeDiv(newArray);
+                    };
+            });
+        });
+
     });
 
-       
-        // twoHBtn.addEventListener("click", ()=> console.log("I was clicked"));
-        // fourHBtn.addEventListener("click", ()=> console.log("I was clicked"));
-        // eightHBtn.addEventListener("click", ()=> console.log("I was clicked"));
 
     function makeDiv(data){
         const parentDiv = document.getElementById("athleteDiv");
