@@ -8,118 +8,248 @@ fetch('http://localhost:3000/athletes')
         const fourHAthletes = document.getElementsByClassName("400m");
         const eightHAthletes = document.getElementsByClassName("800m");
 
+        const deleteButton = document.getElementsByClassName("closeCard");
+        console.log(deleteButton)
+
         allBtn.addEventListener("click", ()=> {
             deleteDiv();
-            return makeDiv(data);
+
+            domData = makeDiv(data);
+
+            deleteCardOne();
+            deleteCardTwo();
+            deleteCardThree();
+            deleteCardFour();
+            deleteCardFive();
+            deleteCardSix();
+            deleteCardSeven();
+            deleteCardEight();
+            deleteCardNine();
+            deleteCardTen();
+            deleteCardEleven();
+            deleteCardTwelve();
+
+            return domData;
         });
 
-        let dataArray = [...data];
+        const dataArray = [...data];
 
         oneHBtn.addEventListener("click", function(data){
             deleteDiv();
             dataArray.forEach(object => {
-                    if(object.event === "100m"){
-                        let newArray = [];
-                        newArray.push(object);
-                        return makeDiv(newArray);
-                    };
+                if(object.event === "100m"){
+                    let newArray = [];
+                    newArray.push(object);
+                    let divs = makeDiv(newArray);
+                };
+                // deleteCardOne();
+                // deleteCardTwo();
+                // deleteCardThree();
+                return divs;
             });
         });
 
         twoHBtn.addEventListener("click", function(data){
             deleteDiv();
             dataArray.forEach(object => {
-                    if(object.event === "200m"){
-                        let newArray = [];
-                        newArray.push(object);
-                        return makeDiv(newArray);
-                    };
+                if(object.event === "200m"){
+                    let newArray = [];
+                    newArray.push(object);
+                    return makeDiv(newArray);
+                };
             });
         });
 
         fourHBtn.addEventListener("click", function(data){
             deleteDiv();
             dataArray.forEach(object => {
-                    if(object.event === "400m"){
-                        let newArray = [];
-                        newArray.push(object);
-                        return makeDiv(newArray);
-                    };
+                if(object.event === "400m"){
+                    let newArray = [];
+                    newArray.push(object);
+                    return makeDiv(newArray);
+                };
             });
         });
 
         eightHBtn.addEventListener("click", function(data){
             deleteDiv();
             dataArray.forEach(object => {
-                    if(object.event === "800m"){
-                        let newArray = [];
-                        newArray.push(object);
-                        return makeDiv(newArray);
-                    };
+                if(object.event === "800m"){
+                    let newArray = [];
+                    newArray.push(object);
+                    return makeDiv(newArray);
+                    // let divs = makeDiv(newArray);
+                };
+                // return divs;
             });
         });
 
     });
 
-    function deleteDiv(){
-        const deleteAthletes = document.querySelectorAll(".allAthletes");
-        for(let item of deleteAthletes){
-            item.remove();
-        }
+function deleteDiv(){
+    const deleteAthletes = document.querySelectorAll(".allAthletes");
+    for(let item of deleteAthletes){
+        item.remove();
     }
+};
 
-    function makeDiv(data){
-        const parentDiv = document.getElementById("athleteDiv");
-        for(const item of data){
-            const newDiv = document.createElement("div");
+function deleteCards(cardId){
+    cardId.remove();
+};
 
-            newDiv.classList.add(item.event, 'allAthletes');
-            parentDiv.appendChild(newDiv);
+function deleteCardOne(){
+    const deleteBtn = document.getElementById("1");
+    const deleteCard = document.getElementById("1");
+    deleteBtn.addEventListener("click", function(){
+        deleteCards(deleteCard);
+    });
+};
 
-            let h3 = document.createElement("h3");
-            let infoDiv = document.createElement("main");
-            newDiv.append(h3, infoDiv);
+function deleteCardTwo(){
+    const deleteBtn = document.getElementById("2");
+    const deleteCard = document.getElementById("2");
+    deleteBtn.addEventListener("click", function(){
+        deleteCards(deleteCard);
+    });
+};
 
-            h3.textContent = item.event;
-            infoDiv.className = "athleteCard";
+function deleteCardThree(){
+    const deleteBtn = document.getElementById("3");
+    const deleteCard = document.getElementById("3");
+    deleteBtn.addEventListener("click", function(){
+        deleteCards(deleteCard);
+    });
+};
 
-            let divPart1 = document.createElement("div");
-            let divPart2 = document.createElement("div");
-            let divPart3 = document.createElement("div");
-            infoDiv.append(divPart1, divPart2, divPart3);
+function deleteCardFour(){
+    const deleteBtn = document.getElementById("4");
+    const deleteCard = document.getElementById("4");
+    deleteBtn.addEventListener("click", function(){
+        deleteCards(deleteCard);
+    });
+};
 
-            divPart1.id = "imgDiv";
-            divPart1.className = "athleteInfo";
+function deleteCardFive(){
+    const deleteBtn = document.getElementById("5");
+    const deleteCard = document.getElementById("5");
+    deleteBtn.addEventListener("click", function(){
+        deleteCards(deleteCard);
+    });
+};
 
-            divPart2.id = "bioDiv";
-            divPart2.className = "athleteInfo";
+function deleteCardSix(){
+    const deleteBtn = document.getElementById("6");
+    const deleteCard = document.getElementById("6");
+    deleteBtn.addEventListener("click", function(){
+        deleteCards(deleteCard);
+    });
+};
 
-            divPart3.id = "closeDiv";
-            divPart3.className = "athleteInfo";
+function deleteCardSeven(){
+    const deleteBtn = document.getElementById("7");
+    const deleteCard = document.getElementById("7");
+    deleteBtn.addEventListener("click", function(){
+        deleteCards(deleteCard);
+    });
+};
 
-        
-            let img = document.createElement("img");
-            divPart1.appendChild(img);
+function deleteCardEight(){
+    const deleteBtn = document.getElementById("8");
+    const deleteCard = document.getElementById("8");
+    deleteBtn.addEventListener("click", function(){
+        deleteCards(deleteCard);
+    });
+};
 
-            img.src = item.image;
+function deleteCardNine(){
+    const deleteBtn = document.getElementById("9");
+    const deleteCard = document.getElementById("9");
+    deleteBtn.addEventListener("click", function(){
+        deleteCards(deleteCard);
+    });
+};
 
-            let p = document.createElement("p");
-            let p2 = document.createElement("p");
-            divPart2.append(p, p2);
+function deleteCardTen(){
+    const deleteBtn = document.getElementById("10");
+    const deleteCard = document.getElementById("10");
+    deleteBtn.addEventListener("click", function(){
+        deleteCards(deleteCard);
+    });
+};
 
-            p.textContent = item.name;
-            p2.textContent = item.time;
+function deleteCardEleven(){
+    const deleteBtn = document.getElementById("11");
+    const deleteCard = document.getElementById("11");
+    deleteBtn.addEventListener("click", function(){
+        deleteCards(deleteCard);
+    });
+};
 
-            let button = document.createElement("button");
-            divPart3.appendChild(button);
+function deleteCardTwelve(){
+    const deleteBtn = document.getElementById("12");
+    console.log(deleteBtn)
+    const deleteCard = document.getElementById("12");
+    console.log(deleteCard)
+    deleteBtn.addEventListener("click", function(){
+        deleteCards(deleteCard);
+    });
+};
 
-            button.id = item.id;
-            button.className = "closeCard";
-            button.textContent = " X ";
-        }
+
+function makeDiv(data){
+    const parentDiv = document.getElementById("athleteDiv");
+    for(const item of data){
+        const newDiv = document.createElement("div");
+
+        newDiv.id = item.id;
+        newDiv.classList.add(item.event, 'allAthletes');
+        parentDiv.appendChild(newDiv);
+
+        let h3 = document.createElement("h3");
+        let infoDiv = document.createElement("main");
+        newDiv.append(h3, infoDiv);
+
+        h3.textContent = item.event;
+        infoDiv.className = "athleteCard";
+
+        let divPart1 = document.createElement("div");
+        let divPart2 = document.createElement("div");
+        let divPart3 = document.createElement("div");
+        infoDiv.append(divPart1, divPart2, divPart3);
+
+        divPart1.id = "imgDiv";
+        divPart1.className = "athleteInfo";
+
+        divPart2.id = "bioDiv";
+        divPart2.className = "athleteInfo";
+
+        divPart3.id = "closeDiv";
+        divPart3.className = "athleteInfo";
+
+    
+        let img = document.createElement("img");
+        divPart1.appendChild(img);
+
+        img.src = item.image;
+
+        let p = document.createElement("p");
+        let p2 = document.createElement("p");
+        divPart2.append(p, p2);
+
+        p.textContent = item.name;
+        p2.textContent = item.time;
+
+        let button = document.createElement("button");
+        divPart3.appendChild(button);
+
+        button.id = item.id;
+        button.className = "closeCard";
+        button.textContent = " X ";
     };
+};
 
 
+//Hover Button Event Listeners:
 const allBtn = document.getElementById("all");
 const oneHBtn = document.getElementById("oneH");
 const twoHBtn =  document.getElementById("twoH");
@@ -174,58 +304,6 @@ eightHBtn.addEventListener("mouseout", ()=> {
 
 
 
-
-
-
-// oneHBtn.addEventListener("click", (oneHAthletes)=> {
-//     // let toArray = Array.isArray(oneHAthletes) ? oneHAthletes : Object.values(oneHAthletes);
-//     // oneHAthletes.innerHTML = "";
-//     console.log("I was clicked");
-//     return oneHAthletes;
-//     // toArray.forEach(() => {
-//     //     toArray.type = "";
-//     //     // item.type === hidden
-//     // })
-//     // 
-//     // return toArray;
-
-// });
-
-
-
-
-
-
-
-
-
-
-//add event listners to the options...
-//so when the option is clicked, the data is either hidden or visible...
-//___To do that, we need to get the data using fetch
-//___Use forEach() to sort them into divs...
-//Then use filter to look for options with the id that matches an event...
-//that was attached to the event that was clicked on.
-
-//In other words:
-//1. Fetch the data using interpolation to look for objects that match the ID.
-    //1) 
-    //1) Use fetch .then .then (function (data){ }
-    //2) Assign matching 
-//2. Add a click event listener to the options that triggers a function.
-//3. That function will use filter() to search the fetch data for athletes that match the event.
-//4. It will invoke another function that will use forEach to sort the data into divs and make the elements visible on the DOM.
-    //1) The function will first check to see if there is anything in the parent div. If so, it will delete those items.
-    //2) Declare a const and assign an array.
-    //3) The function will then iterate through the API data using filter() and the Comparison Operator (===) to check if the data.event matches the event we're searching for.
-    //4) When a match is found, it will be pushed to the new const array.
-        //5) Make another function.
-        //6) Use forEach() to iterate through the new const array and assign each item of each object to a newly created div and side-by-side div.
-        //7) Assign each Object value to an img or p so it can be displayed on the DOM, make the Object.key the tag's id on the DOM.
-    //8) Create CSS styling of the tags ids so they are all consistent in the cards
-
-
-
 //Psuedocode
 // A. DOM Structure
 // DONE 1) Create Divs
@@ -233,16 +311,14 @@ eightHBtn.addEventListener("mouseout", ()=> {
 // DONE 3) Review buttons
 // DONE 4) Add filter button
 // DONE 5) Get filter Button working
-// 6) Figure out how to attach the json data to the filter options
+// DONE 6) Figure out how to attach the json data to the button options
 
 // B. JS DOM Divs
 // DONE 1) Review how to add HTML elements with JS.
 // DONE 2) Create a function that will create a div for the athlete "cards"
-// 3) Use forEach() to put the json data into a div on the DOM
+// DONE 3) Use forEach() to put the json data into a div on the DOM
 // DONE 4) Get the cards working
 
 // C. Event Listeners w/ their own callback functions
 // 1) Create the remove button to remove cards
-// 2) Add something that will remove all the cards when "all" is selected from the filter
-// 3) Add something that will show all the athletes when "all" is selected
-// 4) Add a mouseover event that tells you what placing the athlete is in (1st,2nd, or 3rd)
+// 2) Add something that will show all the athletes when "all" is selected
