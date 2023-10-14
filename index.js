@@ -2,35 +2,35 @@
 fetch('http://localhost:3000/athletes')
     .then((resp)=>resp.json())
     .then(function(data) {
-        console.log(data)
+        // console.log(data)
         const allAthletes = document.getElementsByClassName("allAthletes");
         const twoHAthletes = document.getElementsByClassName("200m");
         const fourHAthletes = document.getElementsByClassName("400m");
         const eightHAthletes = document.getElementsByClassName("800m");
 
-        allBtn.addEventListener("click", (data)=> {
+        allBtn.addEventListener("click", ()=> {
             return makeDiv(data);
         });
-        
-        // oneHBtn.addEventListener("click", (data)=> {
-        //     let dataArray = data.map(function(dataArray){
-        //         if(dataArray.event === "100m"){
-        //             let newArray = [];
-        //             newArray.push(item);
-        //             return makeDiv(newArray);
-        //         }
-        //     })
-        // })
 
+        let dataArray = [...data];
 
-        // });
-        
+        oneHBtn.addEventListener("click", function(data){
+            dataArray.forEach(object => {
+                    if(object.event === "100m"){
+                        let newArray = [];
+                        newArray.push(object);
+                        return makeDiv(newArray);
+                    };
+            });
+        });
+    });
+
        
         // twoHBtn.addEventListener("click", ()=> console.log("I was clicked"));
         // fourHBtn.addEventListener("click", ()=> console.log("I was clicked"));
         // eightHBtn.addEventListener("click", ()=> console.log("I was clicked"));
 
-    function makeDiv(){
+    function makeDiv(data){
         const parentDiv = document.getElementById("athleteDiv");
         for(const item of data){
             const newDiv = document.createElement("div");
@@ -80,7 +80,7 @@ fetch('http://localhost:3000/athletes')
             button.textContent = " X ";
         }
     };
-    });
+
 
 const allBtn = document.getElementById("all");
 const oneHBtn = document.getElementById("oneH");
