@@ -9,7 +9,6 @@ fetch('http://localhost:3000/athletes')
         const eightHAthletes = document.getElementsByClassName("800m");
 
         const deleteButton = document.getElementsByClassName("closeCard");
-        console.log(deleteButton)
 
         allBtn.addEventListener("click", ()=> {
             deleteDiv();
@@ -40,13 +39,12 @@ fetch('http://localhost:3000/athletes')
                 if(object.event === "100m"){
                     let newArray = [];
                     newArray.push(object);
-                    let divs = makeDiv(newArray);
+                    return makeDiv(newArray);
                 };
-                // deleteCardOne();
-                // deleteCardTwo();
-                // deleteCardThree();
-                return divs;
             });
+            deleteCardOne();
+            deleteCardTwo();
+            deleteCardThree();
         });
 
         twoHBtn.addEventListener("click", function(data){
@@ -58,6 +56,9 @@ fetch('http://localhost:3000/athletes')
                     return makeDiv(newArray);
                 };
             });
+            deleteCardFour();
+            deleteCardFive();
+            deleteCardSix();
         });
 
         fourHBtn.addEventListener("click", function(data){
@@ -69,6 +70,9 @@ fetch('http://localhost:3000/athletes')
                     return makeDiv(newArray);
                 };
             });
+            deleteCardSeven();
+            deleteCardEight();
+            deleteCardNine();
         });
 
         eightHBtn.addEventListener("click", function(data){
@@ -78,10 +82,11 @@ fetch('http://localhost:3000/athletes')
                     let newArray = [];
                     newArray.push(object);
                     return makeDiv(newArray);
-                    // let divs = makeDiv(newArray);
                 };
-                // return divs;
             });
+            deleteCardTen();
+            deleteCardEleven();
+            deleteCardTwelve();
         });
 
     });
