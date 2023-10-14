@@ -9,12 +9,14 @@ fetch('http://localhost:3000/athletes')
         const eightHAthletes = document.getElementsByClassName("800m");
 
         allBtn.addEventListener("click", ()=> {
+            deleteDiv();
             return makeDiv(data);
         });
 
         let dataArray = [...data];
 
         oneHBtn.addEventListener("click", function(data){
+            deleteDiv();
             dataArray.forEach(object => {
                     if(object.event === "100m"){
                         let newArray = [];
@@ -25,6 +27,7 @@ fetch('http://localhost:3000/athletes')
         });
 
         twoHBtn.addEventListener("click", function(data){
+            deleteDiv();
             dataArray.forEach(object => {
                     if(object.event === "200m"){
                         let newArray = [];
@@ -35,6 +38,7 @@ fetch('http://localhost:3000/athletes')
         });
 
         fourHBtn.addEventListener("click", function(data){
+            deleteDiv();
             dataArray.forEach(object => {
                     if(object.event === "400m"){
                         let newArray = [];
@@ -45,6 +49,7 @@ fetch('http://localhost:3000/athletes')
         });
 
         eightHBtn.addEventListener("click", function(data){
+            deleteDiv();
             dataArray.forEach(object => {
                     if(object.event === "800m"){
                         let newArray = [];
@@ -56,6 +61,12 @@ fetch('http://localhost:3000/athletes')
 
     });
 
+    function deleteDiv(){
+        const deleteAthletes = document.querySelectorAll(".allAthletes");
+        for(let item of deleteAthletes){
+            item.remove();
+        }
+    }
 
     function makeDiv(data){
         const parentDiv = document.getElementById("athleteDiv");
