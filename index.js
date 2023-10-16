@@ -325,5 +325,6 @@ eightHBtn.addEventListener("mouseout", ()=> {
 // DONE 4) Get the cards working
 
 // C. Event Listeners w/ their own callback functions
-// 1) Create the remove button to remove cards
-// 2) Add something that will show all the athletes when "all" is selected
+// DONE 1) Create the remove button to remove cards
+// DONE 2) Add something that will show all the athletes when "all" is selected
+// 3) Add one more type of event listener (have button and mouseover)
