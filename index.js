@@ -7,12 +7,15 @@ console.log(text)
 toggle.addEventListener("change", ()=> {
     if(body.style.backgroundColor === "black"){
         body.style.backgroundColor = "white";
-        text.style = "black";
+        for(const item of text){
+            item.style.color = "black";
+        }
     } else {
         body.style.backgroundColor = "black";
-        text.style = "white";
+        for(const item of text){
+            item.style.color = "white";
+        }
     }
-    
 });
 
 //All Data Fetch
