@@ -1,3 +1,20 @@
+// Toggle Button Event Listeners:
+const toggle = document.getElementById("toggleInput");
+const body = document.querySelector("body");
+const text = document.getElementsByClassName("text");
+console.log(text)
+
+toggle.addEventListener("change", ()=> {
+    if(body.style.backgroundColor === "black"){
+        body.style.backgroundColor = "white";
+        text.style = "black";
+    } else {
+        body.style.backgroundColor = "black";
+        text.style = "white";
+    }
+    
+});
+
 //All Data Fetch
 fetch('http://localhost:3000/athletes')
     .then((resp)=>resp.json())
@@ -192,9 +209,7 @@ function deleteCardEleven(){
 
 function deleteCardTwelve(){
     const deleteBtn = document.getElementById("12");
-    console.log(deleteBtn)
     const deleteCard = document.getElementById("12");
-    console.log(deleteCard)
     deleteBtn.addEventListener("click", function(){
         deleteCards(deleteCard);
     });
@@ -305,26 +320,3 @@ eightHBtn.addEventListener("mouseout", ()=> {
     eightHBtn.style.backgroundColor = "";
     eightHBtn.style.color = "";
 });
-
-
-
-
-//Psuedocode
-// A. DOM Structure
-// DONE 1) Create Divs
-// DONE 2) Add Headers
-// DONE 3) Review buttons
-// DONE 4) Add filter button
-// DONE 5) Get filter Button working
-// DONE 6) Figure out how to attach the json data to the button options
-
-// B. JS DOM Divs
-// DONE 1) Review how to add HTML elements with JS.
-// DONE 2) Create a function that will create a div for the athlete "cards"
-// DONE 3) Use forEach() to put the json data into a div on the DOM
-// DONE 4) Get the cards working
-
-// C. Event Listeners w/ their own callback functions
-// DONE 1) Create the remove button to remove cards
-// DONE 2) Add something that will show all the athletes when "all" is selected
-// 3) Add one more type of event listener (have button and mouseover)
