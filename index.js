@@ -1,4 +1,3 @@
-// Toggle Button Event Listeners:
 const toggle = document.getElementById("toggleInput");
 const body = document.querySelector("body");
 const text = document.getElementsByClassName("text");
@@ -18,7 +17,6 @@ toggle.addEventListener("change", ()=> {
     }
 });
 
-//All Data Fetch
 fetch('http://localhost:3000/athletes')
     .then((resp)=>resp.json())
     .then(function(data) {
@@ -111,6 +109,7 @@ fetch('http://localhost:3000/athletes')
 
     });
 
+    
 function deleteDiv(){
     const deleteAthletes = document.querySelectorAll(".allAthletes");
     for(let item of deleteAthletes){
