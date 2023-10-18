@@ -20,8 +20,17 @@ fetch('http://localhost:3000/athletes')
     .then((resp)=>resp.json())
     .then(function(data) {
 
-        const deleteButton = document.getElementsByClassName("closeCard");
-
+        const dataArray = [...data];
+       
+        function eventArray(meters){
+            dataArray.forEach(object => {
+                if(object.event === meters){
+                    let newArray = [];
+                    newArray.push(object);
+                    return makeDiv(newArray);
+                };
+            });
+        };
 
         allBtn.addEventListener("click", ()=> {
             deleteDiv();
@@ -43,19 +52,10 @@ fetch('http://localhost:3000/athletes')
 
             return domData;
         });
-
-        const dataArray = [...data];
-       
-
+        
         oneHBtn.addEventListener("click", function(data){
             deleteDiv();
-            dataArray.forEach(object => {
-                if(object.event === "100m"){
-                    let newArray = [];
-                    newArray.push(object);
-                    return makeDiv(newArray);
-                };
-            });
+            eventArray("100m");
             deleteCard("1");
             deleteCard("2");
             deleteCard("3");
@@ -63,13 +63,7 @@ fetch('http://localhost:3000/athletes')
 
         twoHBtn.addEventListener("click", function(data){
             deleteDiv();
-            dataArray.forEach(object => {
-                if(object.event === "200m"){
-                    let newArray = [];
-                    newArray.push(object);
-                    return makeDiv(newArray);
-                };
-            });
+            eventArray("200m");
             deleteCard("4");
             deleteCard("5");
             deleteCard("6");
@@ -77,13 +71,7 @@ fetch('http://localhost:3000/athletes')
 
         fourHBtn.addEventListener("click", function(data){
             deleteDiv();
-            dataArray.forEach(object => {
-                if(object.event === "400m"){
-                    let newArray = [];
-                    newArray.push(object);
-                    return makeDiv(newArray);
-                };
-            });
+            eventArray("400m");
             deleteCard("7");
             deleteCard("8");
             deleteCard("9");
@@ -91,19 +79,14 @@ fetch('http://localhost:3000/athletes')
 
         eightHBtn.addEventListener("click", function(data){
             deleteDiv();
-            dataArray.forEach(object => {
-                if(object.event === "800m"){
-                    let newArray = [];
-                    newArray.push(object);
-                    return makeDiv(newArray);
-                };
-            });
+            eventArray("800m");
             deleteCard("10");
             deleteCard("11");
             deleteCard("12");
         });
 
     });
+
 
 //deletes any existing divs when a button is pressed
 function deleteDiv(){
@@ -112,7 +95,7 @@ function deleteDiv(){
         item.remove();
     }
 };
-
+//
 //Attach event listener to delete button
 function deleteCard(id){
     const closeBtn = document.getElementById(id);
@@ -183,14 +166,14 @@ function makeDiv(data){
 };
 
 
-//Buttons
+//Buttons:
 const allBtn = document.getElementById("all");
 const oneHBtn = document.getElementById("oneH");
 const twoHBtn =  document.getElementById("twoH");
 const fourHBtn = document.getElementById("fourH");
 const eightHBtn = document.getElementById("eightH");
 
-
+//MouseOver and MouseOut events:
 document.addEventListener("DOMContentLoaded", ()=>{
     const btnChoice = document.getElementsByClassName("btnChoice");
     addMouseEvents(btnChoice);
@@ -199,20 +182,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
 function addMouseEvents(object){
     for(let item of object){
         item.addEventListener('mouseover', function(){
-            mouseOver(item);
+            item.style.backgroundColor = 'rgb(62, 61, 61)';
+            item.style.color = 'white';
         })
         item.addEventListener('mouseout', function(){
-            mouseOut(item);
+            item.style.backgroundColor = "";
+            item.style.color = "";
         })
     }
 };
-
-function mouseOver(button){
-    button.style.backgroundColor = 'rgb(62, 61, 61)';
-    button.style.color = 'white';
-}
-
-function mouseOut(button){
-    button.style.backgroundColor = "";
-    button.style.color = "";
-}
