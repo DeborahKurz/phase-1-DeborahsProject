@@ -27,11 +27,15 @@ fetch('http://localhost:3000/athletes')
                 if(object.event === meters){
                     let newArray = [];
                     newArray.push(object);
+                    console.log(object);
+                    console.log(object.id);
+                    // deleteCard(object.id);
                     return makeDiv(newArray);
                 };
             });
         };
-
+        
+   
         allBtn.addEventListener("click", ()=> {
             deleteDiv();
 
@@ -52,10 +56,12 @@ fetch('http://localhost:3000/athletes')
 
             return domData;
         });
+
         
         oneHBtn.addEventListener("click", function(data){
             deleteDiv();
             eventArray("100m");
+            
             deleteCard("1");
             deleteCard("2");
             deleteCard("3");
@@ -99,17 +105,9 @@ function deleteDiv(){
 //Attach event listener to delete button
 function deleteCard(id){
     const closeBtn = document.getElementById(id);
-    return addListener(closeBtn);
-};
-//Event Listener for delete button
-function addListener(btn) {
-    btn.addEventListener("click", function(){
-        deleteCards(btn)
+    closeBtn.addEventListener("click", function(){
+        closeBtn.remove();
     })
-};
-//Functin for addListener
-function deleteCards(cardId){
-    cardId.remove();
 };
 
 //fetch
