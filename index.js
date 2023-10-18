@@ -22,29 +22,30 @@ fetch('http://localhost:3000/athletes')
 
         const deleteButton = document.getElementsByClassName("closeCard");
 
+
         allBtn.addEventListener("click", ()=> {
             deleteDiv();
 
             domData = makeDiv(data);
-            const closeButtons = [];
     
-            deleteCardOne();
-            deleteCardTwo();
-            deleteCardThree();
-            deleteCardFour();
-            deleteCardFive();
-            deleteCardSix();
-            deleteCardSeven();
-            deleteCardEight();
-            deleteCardNine();
-            deleteCardTen();
-            deleteCardEleven();
-            deleteCardTwelve();
+            deleteCard("1");
+            deleteCard("2");
+            deleteCard("3");
+            deleteCard("4");
+            deleteCard("5");
+            deleteCard("6");
+            deleteCard("7");
+            deleteCard("8");
+            deleteCard("9");
+            deleteCard("10");
+            deleteCard("11");
+            deleteCard("12");
 
             return domData;
         });
 
         const dataArray = [...data];
+       
 
         oneHBtn.addEventListener("click", function(data){
             deleteDiv();
@@ -55,9 +56,9 @@ fetch('http://localhost:3000/athletes')
                     return makeDiv(newArray);
                 };
             });
-            deleteCardOne();
-            deleteCardTwo();
-            deleteCardThree();
+            deleteCard("1");
+            deleteCard("2");
+            deleteCard("3");
         });
 
         twoHBtn.addEventListener("click", function(data){
@@ -69,9 +70,9 @@ fetch('http://localhost:3000/athletes')
                     return makeDiv(newArray);
                 };
             });
-            deleteCardFour();
-            deleteCardFive();
-            deleteCardSix();
+            deleteCard("4");
+            deleteCard("5");
+            deleteCard("6");
         });
 
         fourHBtn.addEventListener("click", function(data){
@@ -83,9 +84,9 @@ fetch('http://localhost:3000/athletes')
                     return makeDiv(newArray);
                 };
             });
-            deleteCardSeven();
-            deleteCardEight();
-            deleteCardNine();
+            deleteCard("7");
+            deleteCard("8");
+            deleteCard("9");
         });
 
         eightHBtn.addEventListener("click", function(data){
@@ -97,9 +98,9 @@ fetch('http://localhost:3000/athletes')
                     return makeDiv(newArray);
                 };
             });
-            deleteCardTen();
-            deleteCardEleven();
-            deleteCardTwelve();
+            deleteCard("10");
+            deleteCard("11");
+            deleteCard("12");
         });
 
     });
@@ -112,9 +113,10 @@ function deleteDiv(){
     }
 };
 
-//Functin for addListener
-function deleteCards(cardId){
-    cardId.remove();
+//Attach event listener to delete button
+function deleteCard(id){
+    const closeBtn = document.getElementById(id);
+    return addListener(closeBtn);
 };
 //Event Listener for delete button
 function addListener(btn) {
@@ -122,69 +124,10 @@ function addListener(btn) {
         deleteCards(btn)
     })
 };
-
-
-//delete buttons
-function deleteCardOne(){
-    const closeBtn = document.getElementById("1");
-    return addListener(closeBtn);
+//Functin for addListener
+function deleteCards(cardId){
+    cardId.remove();
 };
-
-function deleteCardTwo(){
-    const closeBtn = document.getElementById("2");
-    return addListener(closeBtn);
-};
-
-function deleteCardThree(){
-    const closeBtn = document.getElementById("3");
-    return addListener(closeBtn);
-};
-
-function deleteCardFour(){
-    const closeBtn = document.getElementById("4");
-    return addListener(closeBtn);
-};
-
-function deleteCardFive(){
-    const closeBtn = document.getElementById("5");
-    return addListener(closeBtn);
-};
-
-function deleteCardSix(){
-    const closeBtn = document.getElementById("6");
-    return addListener(closeBtn);
-};
-
-function deleteCardSeven(){
-    const closeBtn = document.getElementById("7");
-    return addListener(closeBtn);
-};
-
-function deleteCardEight(){
-    const closeBtn = document.getElementById("8");
-    return addListener(closeBtn);
-};
-
-function deleteCardNine(){
-    const closeBtn = document.getElementById("9");
-    return addListener(closeBtn);
-};
-
-function deleteCardTen(){
-    const closeBtn = document.getElementById("10");
-    return addListener(closeBtn);
-};
-
-function deleteCardEleven(){
-    const closeBtn = document.getElementById("11");
-    return addListener(closeBtn);
-};
-
-function deleteCardTwelve(){
-    const closeBtn = document.getElementById("12");
-    return addListener(closeBtn);
-};
-
 
 //fetch
 function makeDiv(data){
@@ -247,7 +190,23 @@ const twoHBtn =  document.getElementById("twoH");
 const fourHBtn = document.getElementById("fourH");
 const eightHBtn = document.getElementById("eightH");
 
-//mouseOver & mouseOut Functions
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    const btnChoice = document.getElementsByClassName("btnChoice");
+    addMouseEvents(btnChoice);
+})
+
+function addMouseEvents(object){
+    for(let item of object){
+        item.addEventListener('mouseover', function(){
+            mouseOver(item);
+        })
+        item.addEventListener('mouseout', function(){
+            mouseOut(item);
+        })
+    }
+};
+
 function mouseOver(button){
     button.style.backgroundColor = 'rgb(62, 61, 61)';
     button.style.color = 'white';
@@ -257,43 +216,3 @@ function mouseOut(button){
     button.style.backgroundColor = "";
     button.style.color = "";
 }
-
-//mouseover and mouseout Event Listeners *
-
-allBtn.addEventListener("mouseover", ()=> {
-    return mouseOver(allBtn);
-});
-
-allBtn.addEventListener("mouseout", ()=> {
-    return mouseOut(allBtn);
-});
-
-
-oneHBtn.addEventListener("mouseover", ()=> {
-    return mouseOver(oneHBtn);
-});
-
-oneHBtn.addEventListener("mouseout", ()=> {
-    return mouseOut(oneHBtn);
-});
-//
-twoHBtn.addEventListener("mouseover", ()=> {
-    return mouseOver(twoHBtn);
-});
-twoHBtn.addEventListener("mouseout", ()=> {
-    return mouseOut(twoHBtn);
-});
-//
-fourHBtn.addEventListener("mouseover", ()=> {
-    return mouseOver(fourHBtn);
-});
-fourHBtn.addEventListener("mouseout", ()=> {
-    return mouseOut(fourHBtn);
-});
-//
-eightHBtn.addEventListener("mouseover", ()=> {
-    return mouseOver(eightHBtn);
-});
-eightHBtn.addEventListener("mouseout", ()=> {
-    return mouseOut(eightHBtn);
-});
