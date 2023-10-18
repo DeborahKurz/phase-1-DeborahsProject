@@ -21,11 +21,6 @@ fetch('http://localhost:3000/athletes')
     .then((resp)=>resp.json())
     .then(function(data) {
 
-        const allAthletes = document.getElementsByClassName("allAthletes");
-        const twoHAthletes = document.getElementsByClassName("200m");
-        const fourHAthletes = document.getElementsByClassName("400m");
-        const eightHAthletes = document.getElementsByClassName("800m");
-
         const deleteButton = document.getElementsByClassName("closeCard");
 
         allBtn.addEventListener("click", ()=> {
@@ -109,7 +104,7 @@ fetch('http://localhost:3000/athletes')
 
     });
 
-    
+
 function deleteDiv(){
     const deleteAthletes = document.querySelectorAll(".allAthletes");
     for(let item of deleteAthletes){
@@ -270,55 +265,57 @@ function makeDiv(data){
     };
 };
 
-
-//Hover Button Event Listeners:
 const allBtn = document.getElementById("all");
 const oneHBtn = document.getElementById("oneH");
 const twoHBtn =  document.getElementById("twoH");
 const fourHBtn = document.getElementById("fourH");
 const eightHBtn = document.getElementById("eightH");
-//
+
+
+function mouseOver(button){
+    button.style.backgroundColor = 'rgb(62, 61, 61)';
+    button.style.color = 'white';
+}
+
+function mouseOut(button){
+    button.style.backgroundColor = "";
+    button.style.color = "";
+}
+
 allBtn.addEventListener("mouseover", ()=> {
-    allBtn.style.backgroundColor = 'rgb(62, 61, 61)';
-    allBtn.style.color = 'white';
+    return mouseOver(allBtn);
 });
+
 allBtn.addEventListener("mouseout", ()=> {
-    allBtn.style.backgroundColor = "";
-    allBtn.style.color = "";
+    return mouseOut(allBtn);
 });
-//
+
+
 oneHBtn.addEventListener("mouseover", ()=> {
-    oneHBtn.style.backgroundColor = 'rgb(62, 61, 61)';
-    oneHBtn.style.color = 'white';
+    return mouseOver(oneHBtn);
 });
+
 oneHBtn.addEventListener("mouseout", ()=> {
-    oneHBtn.style.backgroundColor = "";
-    oneHBtn.style.color = "";
+    return mouseOut(oneHBtn);
 });
 //
 twoHBtn.addEventListener("mouseover", ()=> {
-    twoHBtn.style.backgroundColor = 'rgb(62, 61, 61)';
-    twoHBtn.style.color = 'white';
+    return mouseOver(twoHBtn);
 });
 twoHBtn.addEventListener("mouseout", ()=> {
-    twoHBtn.style.backgroundColor = "";
-    twoHBtn.style.color = "";
+    return mouseOut(twoHBtn);
 });
 //
 fourHBtn.addEventListener("mouseover", ()=> {
-    fourHBtn.style.backgroundColor = 'rgb(62, 61, 61)';
-    fourHBtn.style.color = 'white';
+    return mouseOver(fourHBtn);
 });
 fourHBtn.addEventListener("mouseout", ()=> {
-    fourHBtn.style.backgroundColor = "";
-    fourHBtn.style.color = "";
+    return mouseOut(fourHBtn);
 });
 //
 eightHBtn.addEventListener("mouseover", ()=> {
-    eightHBtn.style.backgroundColor = 'rgb(62, 61, 61)';
-    eightHBtn.style.color = 'white';
+    return mouseOver(eightHBtn);
 });
 eightHBtn.addEventListener("mouseout", ()=> {
-    eightHBtn.style.backgroundColor = "";
-    eightHBtn.style.color = "";
+    return mouseOut(eightHBtn);
 });
