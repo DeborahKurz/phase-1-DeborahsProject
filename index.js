@@ -16,85 +16,69 @@ toggle.addEventListener("change", ()=> {
     }
 });
 
+fetch('http://localhost:3000/athletes')
+    .then((resp)=>resp.json())
+    .then(function(data) {
+
+        const dataArray = [...data];
+
+        allBtn.addEventListener("click", ()=>{
+            deleteDiv();
+            makeAthleteCardForAll(dataArray);
+        })
+
+        oneHBtn.addEventListener("click", ()=>{
+            deleteDiv();
+            makeAthleteCard("100m", dataArray);
+        });
+
+        twoHBtn.addEventListener("click", ()=>{
+            deleteDiv();
+            makeAthleteCard("200m", dataArray);
+        });
+
+        fourHBtn.addEventListener("click", ()=>{
+            deleteDiv();
+            makeAthleteCard("400m", dataArray);
+        });
+
+        eightHBtn.addEventListener("click", ()=>{
+            deleteDiv();
+            makeAthleteCard("800m", dataArray);
+        });
+
+    });
+
+function makeAthleteCard(meters, array){
+    array.forEach(object => {
+        if(object.event === meters){
+            makeDiv(object);
+            let objectId = object.id;
+            let closeBtn = document.getElementById(objectId);
+            closeBtn.addEventListener("click", function(){
+                closeBtn.remove();
+            });
+        };
+    });
+}
+
+function makeAthleteCardForAll(array){
+    array.forEach((object) => {
+        makeDiv(object);
+        let objectId = object.id;
+        let closeBtn = document.getElementById(objectId);
+        closeBtn.addEventListener("click", function(){
+            closeBtn.remove();
+        });
+    });
+};
+
 //Buttons:
 const allBtn = document.getElementById("all");
 const oneHBtn = document.getElementById("oneH");
 const twoHBtn =  document.getElementById("twoH");
 const fourHBtn = document.getElementById("fourH");
 const eightHBtn = document.getElementById("eightH");
-
-fetch('http://localhost:3000/athletes')
-    .then((resp)=>resp.json())
-    .then(function(data) {
-
-        const dataArray = [...data];
-       
-        function eventArray(meters){
-            dataArray.forEach(object => {
-                if(object.event === meters){
-                    let newArray = [];
-                    newArray.push(object);
-                    return makeDiv(newArray);
-                };
-            });
-        };
-    
-
-        allBtn.addEventListener("click", ()=> {
-            deleteDiv();
-
-            domData = makeDiv(data);
-    
-            deleteCard("1");
-            deleteCard("2");
-            deleteCard("3");
-            deleteCard("4");
-            deleteCard("5");
-            deleteCard("6");
-            deleteCard("7");
-            deleteCard("8");
-            deleteCard("9");
-            deleteCard("10");
-            deleteCard("11");
-            deleteCard("12");
-
-            return domData;
-        });
-
-        oneHBtn.addEventListener("click", function(data){
-            deleteDiv();
-            eventArray("100m");
-            deleteCard("1");
-            deleteCard("2");
-            deleteCard("3");
-        });
-
-        twoHBtn.addEventListener("click", function(data){
-            deleteDiv();
-            eventArray("200m");
-            deleteCard("4");
-            deleteCard("5");
-            deleteCard("6");
-        });
-
-        fourHBtn.addEventListener("click", function(data){
-            deleteDiv();
-            eventArray("400m");
-            deleteCard("7");
-            deleteCard("8");
-            deleteCard("9");
-        });
-
-        eightHBtn.addEventListener("click", function(data){
-            deleteDiv();
-            eventArray("800m");
-            deleteCard("10");
-            deleteCard("11");
-            deleteCard("12");
-        });
-
-    });
-
 
 //deletes any existing divs when a button is pressed
 function deleteDiv(){
@@ -104,18 +88,10 @@ function deleteDiv(){
     }
 };
 
-//Attach event listener to delete button
-function deleteCard(id){
-    const closeBtn = document.getElementById(id);
-    closeBtn.addEventListener("click", function(){
-        closeBtn.remove();
-    })
-};
-
 //Make Divs In Fetch
-function makeDiv(data){
+function makeDiv(item){
     const parentDiv = document.getElementById("athleteDiv");
-    for(const item of data){
+    // for(const item of data){
         const newDiv = document.createElement("div");
 
         newDiv.id = item.id;
@@ -163,7 +139,7 @@ function makeDiv(data){
         button.className = "closeCard";
         button.textContent = " X ";
     };
-};
+// };
 
 //MouseOver and MouseOut events:
 document.addEventListener("DOMContentLoaded", ()=>{
