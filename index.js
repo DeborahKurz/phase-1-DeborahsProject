@@ -49,7 +49,6 @@ fetch('http://localhost:3000/athletes')
                     btnListener(btnId, race);
                 }
         }};
-
         function btnListener(btnId, race){
             let element = document.getElementById(btnId);
             element.addEventListener("click", ()=>{
@@ -82,7 +81,6 @@ function createCard(object){
     });
 }
 
-//deletes any existing divs when a button is pressed
 function deleteDiv(){
     const deleteAthletes = document.querySelectorAll(".allAthletes");
     for(let item of deleteAthletes){
@@ -90,60 +88,56 @@ function deleteDiv(){
     }
 };
 
-//Make Divs In Fetch
 function makeDiv(item){
     const parentDiv = document.getElementById("athleteDiv");
-    // for(const item of data){
-        const newDiv = document.createElement("div");
+    const newDiv = document.createElement("div");
 
-        newDiv.id = item.id;
-        newDiv.classList.add(item.event, 'allAthletes');
-        parentDiv.appendChild(newDiv);
+    newDiv.id = item.id;
+    newDiv.classList.add(item.event, 'allAthletes');
+    parentDiv.appendChild(newDiv);
 
-        let h3 = document.createElement("h3");
-        let infoDiv = document.createElement("main");
-        newDiv.append(h3, infoDiv);
+    let h3 = document.createElement("h3");
+    let infoDiv = document.createElement("main");
+    newDiv.append(h3, infoDiv);
 
-        h3.textContent = item.event;
-        infoDiv.className = "athleteCard";
+    h3.textContent = item.event;
+    infoDiv.className = "athleteCard";
 
-        let divPart1 = document.createElement("div");
-        let divPart2 = document.createElement("div");
-        let divPart3 = document.createElement("div");
-        infoDiv.append(divPart1, divPart2, divPart3);
+    let divPart1 = document.createElement("div");
+    let divPart2 = document.createElement("div");
+    let divPart3 = document.createElement("div");
+    infoDiv.append(divPart1, divPart2, divPart3);
 
-        divPart1.id = "imgDiv";
-        divPart1.className = "athleteInfo";
+    divPart1.id = "imgDiv";
+    divPart1.className = "athleteInfo";
 
-        divPart2.id = "bioDiv";
-        divPart2.className = "athleteInfo";
+    divPart2.id = "bioDiv";
+    divPart2.className = "athleteInfo";
 
-        divPart3.id = "closeDiv";
-        divPart3.className = "athleteInfo";
+    divPart3.id = "closeDiv";
+    divPart3.className = "athleteInfo";
 
-    
-        let img = document.createElement("img");
-        divPart1.appendChild(img);
 
-        img.src = item.image;
+    let img = document.createElement("img");
+    divPart1.appendChild(img);
 
-        let p = document.createElement("p");
-        let p2 = document.createElement("p");
-        divPart2.append(p, p2);
+    img.src = item.image;
 
-        p.textContent = item.name;
-        p2.textContent = item.time;
+    let p = document.createElement("p");
+    let p2 = document.createElement("p");
+    divPart2.append(p, p2);
 
-        let button = document.createElement("button");
-        divPart3.appendChild(button);
+    p.textContent = item.name;
+    p2.textContent = item.time;
 
-        button.id = item.id;
-        button.className = "closeCard";
-        button.textContent = " X ";
+    let button = document.createElement("button");
+    divPart3.appendChild(button);
+
+    button.id = item.id;
+    button.className = "closeCard";
+    button.textContent = " X ";
     };
-// };
 
-//MouseOver and MouseOut events:
 document.addEventListener("DOMContentLoaded", ()=>{
     addMouseEvents(btnChoice);
 })
