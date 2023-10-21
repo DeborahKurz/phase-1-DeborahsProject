@@ -16,69 +16,71 @@ toggle.addEventListener("change", ()=> {
     }
 });
 
+const btnChoice = document.getElementsByClassName("btnChoice");
+const allBtn = document.getElementById("all");
+
 fetch('http://localhost:3000/athletes')
     .then((resp)=>resp.json())
     .then(function(data) {
 
-        const dataArray = [...data];
-
         allBtn.addEventListener("click", ()=>{
             deleteDiv();
-            makeAthleteCardForAll(dataArray);
+            makeAthleteCardForAll(data);
         })
 
-        oneHBtn.addEventListener("click", ()=>{
-            deleteDiv();
-            makeAthleteCard("100m", dataArray);
-        });
+        addBtnListeners();
+        function addBtnListeners(){
+            for(const item of btnChoice){
+                if(item.id === "oneH"){
+                    let btnId = item.id;
+                    let race = "100m";
+                    btnListener(btnId, race);
+                }else if(item.id === "twoH"){
+                    let btnId = item.id;
+                    let race = "200m";
+                    btnListener(btnId, race);
+                }else if(item.id === "fourH"){
+                    let btnId = item.id;
+                    let race = "400m";
+                    btnListener(btnId, race);
+                }else if(item.id === "eightH"){
+                    let btnId = item.id;
+                    let race = "800m";
+                    btnListener(btnId, race);
+                }
+        }};
 
-        twoHBtn.addEventListener("click", ()=>{
-            deleteDiv();
-            makeAthleteCard("200m", dataArray);
-        });
+        function btnListener(btnId, race){
+            let element = document.getElementById(btnId);
+            element.addEventListener("click", ()=>{
+                deleteDiv();
+                makeAthleteCard(race, data);
+            });
+        }
+});
 
-        fourHBtn.addEventListener("click", ()=>{
-            deleteDiv();
-            makeAthleteCard("400m", dataArray);
-        });
-
-        eightHBtn.addEventListener("click", ()=>{
-            deleteDiv();
-            makeAthleteCard("800m", dataArray);
-        });
-
+function makeAthleteCardForAll(array){
+    array.forEach((object) => {
+        createCard(object);
     });
+};
 
 function makeAthleteCard(meters, array){
     array.forEach(object => {
         if(object.event === meters){
-            makeDiv(object);
-            let objectId = object.id;
-            let closeBtn = document.getElementById(objectId);
-            closeBtn.addEventListener("click", function(){
-                closeBtn.remove();
-            });
+            createCard(object);
         };
     });
 }
 
-function makeAthleteCardForAll(array){
-    array.forEach((object) => {
-        makeDiv(object);
-        let objectId = object.id;
-        let closeBtn = document.getElementById(objectId);
-        closeBtn.addEventListener("click", function(){
-            closeBtn.remove();
-        });
+function createCard(object){
+    makeDiv(object);
+    let objectId = object.id;
+    let closeBtn = document.getElementById(objectId);
+    closeBtn.addEventListener("click", function(){
+        closeBtn.remove();
     });
-};
-
-//Buttons:
-const allBtn = document.getElementById("all");
-const oneHBtn = document.getElementById("oneH");
-const twoHBtn =  document.getElementById("twoH");
-const fourHBtn = document.getElementById("fourH");
-const eightHBtn = document.getElementById("eightH");
+}
 
 //deletes any existing divs when a button is pressed
 function deleteDiv(){
@@ -143,7 +145,6 @@ function makeDiv(item){
 
 //MouseOver and MouseOut events:
 document.addEventListener("DOMContentLoaded", ()=>{
-    const btnChoice = document.getElementsByClassName("btnChoice");
     addMouseEvents(btnChoice);
 })
 
