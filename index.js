@@ -59,10 +59,8 @@ fetch('http://localhost:3000/athletes')
 });
 
 function makeAthleteCardForAll(array){
-    array.forEach((object) => {
-        createCard(object);
-    });
-};
+    array.forEach(createCard);
+    };
 
 function makeAthleteCard(meters, array){
     array.forEach(object => {
