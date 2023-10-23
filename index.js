@@ -17,21 +17,21 @@ toggle.addEventListener("change", ()=> {
 });
 
 const btnChoice = document.getElementsByClassName("btnChoice");
-const allBtn = document.getElementById("all");
 
 fetch('http://localhost:3000/athletes')
     .then((resp)=>resp.json())
     .then(function(data) {
 
-        allBtn.addEventListener("click", ()=>{
-            deleteDiv();
-            makeAthleteCardForAll(data);
-        })
-
         addBtnListeners();
         function addBtnListeners(){
             for(const item of btnChoice){
-                if(item.id === "oneH"){
+                if(item.id === "all"){
+                    let element = document.getElementById(item.id);
+                    element.addEventListener("click", ()=>{
+                        deleteDiv();
+                        makeAthleteCardForAll(data);
+                    });
+                }else if(item.id === "oneH"){
                     let btnId = item.id;
                     let race = "100m";
                     btnListener(btnId, race);
