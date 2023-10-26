@@ -21,23 +21,59 @@ let twoHArr = [];
 let fourHArr = [];
 let eightHArr = [];
 
-let oneHBtn = document.getElementById("oneH");
-
 fetch('http://localhost:3000/athletes')
     .then((resp)=>resp.json())
     .then(athleteArr => {
 
         sortAthletesArr(athleteArr)
-        
-        oneHBtn.addEventListener("click", ()=>{
-            deleteOldAthletes();
-            for(const athlete of oneHArr){
-                renderNewAthletes(athlete)
-            }
-        })
 
+        attachAllBtnListener(athleteArr)
+        attachBtnListeners()
 
 })
+
+function attachAllBtnListener(athleteArr){
+    let allBtn = document.getElementById("all");
+
+    allBtn.addEventListener("click", ()=>{
+        deleteOldAthletes();
+        for(const athleteObj of athleteArr){
+            renderNewAthletes(athleteObj);
+        }
+    })
+}
+
+function attachBtnListeners(){
+    let oneHBtn = document.getElementById("oneH");
+    let twoHBtn = document.getElementById("twoH");
+    let fourHBtn = document.getElementById("fourH");
+    let eightHBtn = document.getElementById("eightH");
+
+    oneHBtn.addEventListener("click", ()=>{
+        deleteOldAthletes();
+        for(const athlete of oneHArr){
+            renderNewAthletes(athlete);
+        }
+    })
+    twoHBtn.addEventListener("click", ()=>{
+        deleteOldAthletes();
+        for(const athlete of twoHArr){
+            renderNewAthletes(athlete);
+        }
+    })
+    fourHBtn.addEventListener("click", ()=>{
+        deleteOldAthletes();
+        for(const athlete of fourHArr){
+            renderNewAthletes(athlete);
+        }
+    })
+    eightHBtn.addEventListener("click", ()=>{
+        deleteOldAthletes();
+        for(const athlete of eightHArr){
+            renderNewAthletes(athlete);
+        }
+    })
+}
 
 function sortAthletesArr(athleteArr){
     athleteArr.forEach(athleteObj => {
@@ -53,59 +89,15 @@ function sortAthletesArr(athleteArr){
     })
 }   
 
-console.log(oneHArr)
-console.log(twoHArr)
-console.log(fourHArr)
-console.log(eightHArr)
-
-        // for(const athleteObj of athleteArr){
-        //     if(athleteObj.event === "100m"){
-        //         let oneHBtn = document.getElementById("oneH");
-        //         let newAthleteArr = [];
-        //         newAthleteArr.push(athleteObj);
-        //         console.log(newAthleteArr)
-
-//         athleteArr.forEach(athleteObj =>{
-//         //     let allBtn = document.getElementById("all")
-//         //         allBtn.addEventListener("click", ()=>{
-//         //             deleteOldAthletes()
-//         //             renderNewAthletes(athleteObj)
-//         //         })
-//             if(athleteObj.event === "100m"){
-
-//             }else if(athleteObj.event === "200m"){
-//                 let twoHBtn = document.getElementById("twoH")
-//                     twoHBtn.addEventListener("click", ()=>{
-//                         renderNewAthletes(athleteObj)
-//                     })
-//             }else if(athleteObj.event === "400m"){
-//                 let fourHBtn = document.getElementById("fourH")
-//                     fourHBtn.addEventListener("click", ()=>{
-//                         deleteOldAthletes()
-//                         renderNewAthletes(athleteObj)
-//                     })
-//             }else if(athleteObj.event === "800m"){
-//                 let eightHBtn = document.getElementById("eightH")
-//                     eightHBtn.addEventListener("click", ()=>{
-//                         deleteOldAthletes()
-//                         renderNewAthletes(athleteObj)
-//                     })
-//             } 
-//         }
-// )
-// });
-
 function deleteOldAthletes(){
-    console.log("deleteOldAthletes was clicked")
-
     const deleteAthletes = document.querySelectorAll(".allAthletes");
+
     for(let athleteDiv of deleteAthletes){
         athleteDiv.remove();
     }
 };
 
 function renderNewAthletes(athleteObj){
-    // console.log("renderNewAthletes was clicked")
 
     const parentDiv = document.getElementById("athleteDiv");
     const newDiv = document.createElement("div");
