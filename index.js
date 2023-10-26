@@ -2,78 +2,26 @@ const toggle = document.getElementById("toggleInput");
 
 toggle.addEventListener("change", ()=> {
     const body = document.querySelector("body");
-    const text = document.getElementsByClassName("text");
+    const textBlocks = document.getElementsByClassName("text");
     if(body.style.backgroundColor === "black"){
         body.style.backgroundColor = "white";
-        for(const item of text){
-            item.style.color = "black";
+        for(const textItem of textBlocks){
+            textItem.style.color = "black";
         }
     } else {
         body.style.backgroundColor = "black";
-        for(const item of text){
-            item.style.color = "white";
+        for(const textItem of textBlocks){
+            textItem.style.color = "white";
         }
     }
 });
 
-let oneHArr = [];
-let twoHArr = [];
-let fourHArr = [];
-let eightHArr = [];
-
 fetch('http://localhost:3000/athletes')
     .then((resp)=>resp.json())
     .then(athleteArr => {
-
         sortAthletesArr(athleteArr)
-
-        attachAllBtnListener(athleteArr)
-        attachBtnListeners()
-
-})
-
-function attachAllBtnListener(athleteArr){
-    let allBtn = document.getElementById("all");
-
-    allBtn.addEventListener("click", ()=>{
-        deleteOldAthletes();
-        for(const athleteObj of athleteArr){
-            renderNewAthletes(athleteObj);
-        }
-    })
-}
-
-function attachBtnListeners(){
-    let oneHBtn = document.getElementById("oneH");
-    let twoHBtn = document.getElementById("twoH");
-    let fourHBtn = document.getElementById("fourH");
-    let eightHBtn = document.getElementById("eightH");
-
-    oneHBtn.addEventListener("click", ()=>{
-        deleteOldAthletes();
-        for(const athlete of oneHArr){
-            renderNewAthletes(athlete);
-        }
-    })
-    twoHBtn.addEventListener("click", ()=>{
-        deleteOldAthletes();
-        for(const athlete of twoHArr){
-            renderNewAthletes(athlete);
-        }
-    })
-    fourHBtn.addEventListener("click", ()=>{
-        deleteOldAthletes();
-        for(const athlete of fourHArr){
-            renderNewAthletes(athlete);
-        }
-    })
-    eightHBtn.addEventListener("click", ()=>{
-        deleteOldAthletes();
-        for(const athlete of eightHArr){
-            renderNewAthletes(athlete);
-        }
-    })
-}
+        attachBtnListeners(athleteArr)
+});
 
 function sortAthletesArr(athleteArr){
     athleteArr.forEach(athleteObj => {
@@ -89,62 +37,88 @@ function sortAthletesArr(athleteArr){
     })
 }   
 
+let oneHArr = [];
+let twoHArr = [];
+let fourHArr = [];
+let eightHArr = [];
+
+function attachBtnListeners(athleteArr){
+    let allBtn = document.getElementById("all");
+    let oneHBtn = document.getElementById("oneH");
+    let twoHBtn = document.getElementById("twoH");
+    let fourHBtn = document.getElementById("fourH");
+    let eightHBtn = document.getElementById("eightH");
+
+    allBtn.addEventListener("click", ()=>{
+        deleteOldAthletes();
+        renderNewAthletes(athleteArr);
+    })
+    oneHBtn.addEventListener("click", ()=>{
+        deleteOldAthletes();
+        renderNewAthletes(oneHArr);
+    })
+    twoHBtn.addEventListener("click", ()=>{
+        deleteOldAthletes();
+        renderNewAthletes(twoHArr);
+    })
+    fourHBtn.addEventListener("click", ()=>{
+        deleteOldAthletes();
+        renderNewAthletes(fourHArr);
+    })
+    eightHBtn.addEventListener("click", ()=>{
+        deleteOldAthletes();
+        renderNewAthletes(eightHArr);
+    })
+}
+
 function deleteOldAthletes(){
     const deleteAthletes = document.querySelectorAll(".allAthletes");
-
     for(let athleteDiv of deleteAthletes){
         athleteDiv.remove();
     }
 };
 
-function renderNewAthletes(athleteObj){
+function renderNewAthletes(raceEventArr){
+    for(const athleteObj of raceEventArr){
+        const parentDiv = document.getElementById("athleteDiv");
+        const newDiv = document.createElement("div");
+        newDiv.id = athleteObj.id;
+        newDiv.classList.add(athleteObj.event, 'allAthletes');
+        parentDiv.appendChild(newDiv);
 
-    const parentDiv = document.getElementById("athleteDiv");
-    const newDiv = document.createElement("div");
+        let h3 = document.createElement("h3");
+        h3.textContent = athleteObj.event;
+        let infoDiv = document.createElement("main");
+        infoDiv.className = "athleteCard";
+        newDiv.append(h3, infoDiv);
 
-    newDiv.id = athleteObj.id;
-    newDiv.classList.add(athleteObj.event, 'allAthletes');
-    parentDiv.appendChild(newDiv);
+        let divPart1 = document.createElement("div");
+        divPart1.id = "imgDiv";
+        divPart1.className = "athleteInfo";
+        let divPart2 = document.createElement("div");
+        divPart2.id = "bioDiv";
+        divPart2.className = "athleteInfo";
+        let divPart3 = document.createElement("div");
+        divPart3.id = "closeDiv";
+        divPart3.className = "athleteInfo";
+        infoDiv.append(divPart1, divPart2, divPart3);
 
-    let h3 = document.createElement("h3");
-    let infoDiv = document.createElement("main");
-    newDiv.append(h3, infoDiv);
+        let img = document.createElement("img");
+        img.src = athleteObj.image;
+        divPart1.appendChild(img);
 
-    h3.textContent = athleteObj.event;
-    infoDiv.className = "athleteCard";
+        let p = document.createElement("p");
+        p.textContent = athleteObj.name;
+        let p2 = document.createElement("p");
+        p2.textContent = athleteObj.time;
+        divPart2.append(p, p2);
 
-    let divPart1 = document.createElement("div");
-    let divPart2 = document.createElement("div");
-    let divPart3 = document.createElement("div");
-    infoDiv.append(divPart1, divPart2, divPart3);
-
-    divPart1.id = "imgDiv";
-    divPart1.className = "athleteInfo";
-
-    divPart2.id = "bioDiv";
-    divPart2.className = "athleteInfo";
-
-    divPart3.id = "closeDiv";
-    divPart3.className = "athleteInfo";
-
-    let img = document.createElement("img");
-    divPart1.appendChild(img);
-
-    img.src = athleteObj.image;
-
-    let p = document.createElement("p");
-    let p2 = document.createElement("p");
-    divPart2.append(p, p2);
-
-    p.textContent = athleteObj.name;
-    p2.textContent = athleteObj.time;
-
-    let button = document.createElement("button");
-    divPart3.appendChild(button);
-
-    button.id = athleteObj.id;
-    button.className = "closeCard";
-    button.textContent = " X ";
+        let button = document.createElement("button");
+        button.id = athleteObj.id;
+        button.className = "closeCard";
+        button.textContent = " X ";
+        divPart3.appendChild(button);
+}
 }
 
             //add eventlistener to coresponding btnChoice
