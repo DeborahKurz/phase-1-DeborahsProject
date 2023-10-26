@@ -5,84 +5,84 @@
       "name": "Sha'Carri Richardson",
       "image": "https://media.aws.iaaf.org/athletes/14717691.jpg",
       "event": "100m",
-      "time": "10.80"
+      "time": "10.80 seconds"
     },
     {
       "id": 2,
       "name": "Twanisha Terry",
       "image": "https://media.aws.iaaf.org/athletes/14553598.jpg",
       "event": "100m",
-      "time": "10.83"
+      "time": "10.83 seconds"
     },
     {
       "id": 3,
       "name": "Aleia Hobbs",
       "image": "https://media.aws.iaaf.org/athletes/14430847.jpg",
       "event": "100m",
-      "time": "11.11"
+      "time": "11.11 seconds"
     },
     {
       "id": 4,
       "name": "Gabrielle Thomas",
       "image": "https://media.aws.iaaf.org/athletes/14733520.jpg",
       "event": "200m",
-      "time": "21.81"
+      "time": "21.81 seconds"
     },
     {
       "id": 5,
       "name": "Sha'Carri Richardson",
       "image": "https://media.aws.iaaf.org/athletes/14717691.jpg",
       "event": "200m",
-      "time": "22.54"
+      "time": "22.54 seconds"
     },
     {
       "id": 6,
       "name": "Abby Steiner",
       "image": "https://media.aws.iaaf.org/athletes/14691380.jpg",
       "event": "200m",
-      "time": "22.07"
+      "time": "22.07 seconds"
     },
     {
       "id": 7,
       "name": "Shamier Little",
       "image": "https://media.aws.iaaf.org/athletes/14443767.jpg",
       "event": "400m",
-      "time": "49.68"
+      "time": "49.68 seconds"
     },
     {
       "id": 8,
       "name": "Lynna Irby-Jackson",
       "image": "https://media.aws.iaaf.org/athletes/14486888.jpg",
       "event": "400m",
-      "time": "50.45"
+      "time": "50.45 seconds"
     },
     {
       "id": 9,
       "name": "Sydney McLaughlin-Levrone",
       "image": "https://media.aws.iaaf.org/athletes/14624749.jpg",
       "event": "400m",
-      "time": "48.74"
+      "time": "48.74 seconds"
     },
     {
       "id": 10,
       "name": "Athing Mu",
       "image": "https://media.aws.iaaf.org/athletes/14708132.jpg",
       "event": "800m",
-      "time": "1:54.97"
+      "time": "1:54.97 seconds"
     },
     {
       "id": 11,
       "name": "Ajee Wilson",
       "image": "https://media.aws.iaaf.org/athletes/14411176.jpg",
       "event": "800m",
-      "time": "1:58.47"
+      "time": "1:58.47 seconds"
     },
     {
       "id": 12,
       "name": "Nia Akins",
       "image": "https://media.aws.iaaf.org/athletes/14615589.jpg",
       "event": "800m",
-      "time": "1:59.29"
+      "time": "1:59.29 seconds"
     }
   ]
 }
