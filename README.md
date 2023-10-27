@@ -70,3 +70,7 @@ Ajee Wilson https://media.aws.iaaf.org/athletes/14411176.jpg
 Nia Akins https://media.aws.iaaf.org/athletes/14615589.jpg
 
 
+CSS & HTML TOGGLE SWITCH STYLING
+
+I learned how to create a toggle switch using w3schools.com. My finished toggle closely resembles their example, and CSS/HTML code:
+https://www.w3schools.com/howto/howto_css_switch.asp
