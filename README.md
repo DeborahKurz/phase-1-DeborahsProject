@@ -2,19 +2,30 @@
 
 This project fetches data about the Top US Women Runners in the following events: 100m, 200m, 400m, and 800m.
 
-# Features 
-EVENT LISTENERS:
-
+# Features
 At the top of this page a user can toggle between light and dark mode. This will also change the page's text so it is white (dark mode) or black (light mode).
+
 ![Toggle Demo](ReadMeGifs/ToggleGif.gif)
 
+
+
+
 The race event buttons have mouseover and mouseout event listeners that change the color of the button, and the button's text color, while the mouse is over the card.
+
 ![Mouseover Demo](ReadMeGifs/MouseOverGif.gif)
 
+
+
+
 When a race event button is clicked, the athletes associated with that event will appear on the screen.
+
 ![Race Event Buttons Demo](ReadMeGifs/ButtonListenerGif.gif)
 
+
+
+
 If a user is does not want to see one of the athletes, there is a "close" button on the div with the athlete's information. Clicking this button will remove the athlete's information from the page.
+
 ![Close Button Demo](ReadMeGifs/CloseButton.gif)
 
 # Credits
