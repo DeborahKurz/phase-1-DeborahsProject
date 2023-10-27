@@ -9,13 +9,13 @@ At the top of this page a user can toggle between light and dark mode. This will
 ![Toggle Demo](ReadMeGifs/ToggleGif.gif)
 
 The race event buttons have mouseover and mouseout event listeners that change the color of the button, and the button's text color, while the mouse is over the card.
-![Race Event Buttons Mouseover Demo] (ReadMeGifs/MouseoverGif.mp4)
+![Mouseover Demo](ReadMeGifs/MouseOverGif.gif)
 
 When a race event button is clicked, the athletes associated with that event will appear on the screen.
-<video src="ReadMeGifs/ButtonListenerGif.mp4" controls title="Title"></video>
+![Race Event Buttons Demo](ReadMeGifs/ButtonListenerGif.gif)
 
 If a user is does not want to see one of the athletes, there is a "close" button on the div with the athlete's information. Clicking this button will remove the athlete's information from the page.
-<video src="ReadMeGifs/CloseBtnGif.mp4" controls title="Title"></video>
+![Close Button Demo](ReadMeGifs/CloseButton.gif)
 
 # Credits
 
