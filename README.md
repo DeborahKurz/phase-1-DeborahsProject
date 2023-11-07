@@ -1,8 +1,21 @@
 # Phase 1 Project: Top US Women Runners
 
-This project fetches data about the Top US Women Runners in the following events: 100m, 200m, 400m, and 800m.
+The purpose of this project is to fetch information about the Top 3 US Women Runners in the following events: 100m, 200m, 400m, and 800m. This project does not fetch data from a public API, but rather a local db.json file (therefore, the accuracy of data is subject to change over time).
+
+# How To Get This Project Running
+Before you do anything with this project (including view it), you will need to start the JSON server on your computer. Here are the steps:
+1. Open your terminal.
+2. Type: json-server --watch db.json
+3. When the server is running you can open the project. To view this project in your browser, open a new terminal and type: open index.html
 
 # Features
+This project was also made to meet several requirements for my Phase-1 Project at Flatiron's School. Some of those requirements included using the method "forEach()", and three distinct eventListeners.
+
+forEach() was used to sort the entire array of athletes into their individual events.
+
+The eventListeners included: 1. A "change" event on the toggle. 2. "Click" events on the Race Events buttons and close buttons. 3. mouseover and mouseout events on the Race Events buttons.
+Let's explore these eventListeners more indepth:
+
 At the top of this page a user can toggle between light and dark mode. This will also change the page's text so it is white (dark mode) or black (light mode).
 
 ![Toggle Demo](ReadMeGifs/ToggleGif.gif)
@@ -31,46 +44,21 @@ If a user is does not want to see one of the athletes, there is a "close" button
 # Credits
 
 100M
-
 Data: World Athletics Ranking Official Site https://worldathletics.org/world-rankings/100m/women?regionType=countries&region=usa&page=1&rankDate=2023-10-03
-
-Athlete Images: 
-Sha'Carri Richardson https://media.aws.iaaf.org/athletes/14717691.jpg
-Twanisha Terry https://media.aws.iaaf.org/athletes/14553598.jpg
-Aleia Hobbs https://media.aws.iaaf.org/athletes/14430847.jpg
 
 
 200M
-
 Data: World Athletics Ranking https://worldathletics.org/world-rankings/200m/women?regionType=countries&region=usa&page=1&rankDate=2023-10-03
-
-Athlete Images: 
-Gabrielle Thomas https://media.aws.iaaf.org/athletes/14733520.jpg
-Sha'Carri Richardson https://media.aws.iaaf.org/athletes/14717691.jpg
-Abby Steiner https://media.aws.iaaf.org/athletes/14691380.jpg
 
 
 400M
-
 Data: World Athletics Ranking https://worldathletics.org/world-rankings/400m/women?regionType=countries&region=usa&page=1&rankDate=2023-10-03
-
-Athlete Images: 
-Shamier Little https://media.aws.iaaf.org/athletes/14443767.jpg
-Lyanna Irby-Jackson https://media.aws.iaaf.org/athletes/14486888.jpg
-Sydney McLaughlin-Levrone https://media.aws.iaaf.org/athletes/14624749.jpg
 
 
 800M
-
 Data: World Athletics Ranking https://worldathletics.org/world-rankings/800m/women?regionType=countries&region=usa&page=1&rankDate=2023-10-03
-
-Athlete Images: 
-Athing Mu https://media.aws.iaaf.org/athletes/14708132.jpg
-Ajee Wilson https://media.aws.iaaf.org/athletes/14411176.jpg
-Nia Akins https://media.aws.iaaf.org/athletes/14615589.jpg
 
 
 CSS & HTML TOGGLE SWITCH STYLING
-
-I learned how to create a toggle switch using w3schools.com. My finished toggle closely resembles their example, and CSS/HTML code:
+I learned how to create a toggle switch using w3schools.com. My finished toggle closely resembles their example and CSS/HTML code:
 https://www.w3schools.com/howto/howto_css_switch.asp
