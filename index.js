@@ -116,9 +116,18 @@ function renderNewAthletes(raceEventArr){
         divPart3.className = "athleteInfo";
         infoDiv.append(divPart1, divPart2, divPart3);
 
+        let imgDiv1 = document.createElement("div");
         let img = document.createElement("img");
         img.src = athleteObj.image;
-        divPart1.appendChild(img);
+        imgDiv1.appendChild(img);
+
+        let imgDiv2 = document.createElement("div");
+        let a = document.createElement("a");
+        a.textContent = "Image Source";
+        a.href = athleteObj.image;
+        imgDiv2.appendChild(a);
+
+        divPart1.append(imgDiv1, imgDiv2);
 
         let p = document.createElement("p");
         p.textContent = athleteObj.name;
