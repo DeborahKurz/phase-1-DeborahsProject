@@ -6,13 +6,13 @@ toggle.addEventListener("change", ()=> {
         body.style.backgroundColor = "white";
         for(const textItem of textBlocks){
             textItem.style.color = "black";
-        }
+        };
     } else {
         body.style.backgroundColor = "black";
         for(const textItem of textBlocks){
             textItem.style.color = "white";
-        }
-    }
+        };
+    };
 });
 
 const btnChoiceArr = document.getElementsByClassName("btnChoice");
@@ -20,18 +20,18 @@ for(let button of btnChoiceArr){
     button.addEventListener('mouseover', function(){
         button.style.backgroundColor = 'rgb(62, 61, 61)';
         button.style.color = 'white';
-    })
+    });
     button.addEventListener('mouseout', function(){
         button.style.backgroundColor = "";
         button.style.color = "";
-    })
+    });
 };
 
 fetch('http://localhost:3000/athletes')
     .then((resp)=>resp.json())
     .then(athleteArr => {
-        sortAthletesArr(athleteArr)
-        attachBtnListeners(athleteArr)
+        sortAthletesArr(athleteArr);
+        attachBtnListeners(athleteArr);
 });
 
 function sortAthletesArr(athleteArr){
@@ -44,8 +44,8 @@ function sortAthletesArr(athleteArr){
             fourHArr.push(athleteObj);
         }else if(athleteObj.event === "800m"){
             eightHArr.push(athleteObj);
-        }
-    })
+        };
+    });
 };   
 
 let oneHArr = [];
@@ -67,10 +67,10 @@ function attachBtnListeners(athleteArr){
     addListener(eightHBtn, eightHArr);
 };
 
-function addListener(button,array){
+function addListener(button, raceEventArr){
     button.addEventListener("click", ()=>{
         deleteOldAthletes();
-        renderNewAthletes(array);
+        renderNewAthletes(raceEventArr);
     });
 };
 
@@ -78,22 +78,22 @@ function deleteOldAthletes(){
     const deleteAthletes = document.querySelectorAll(".allAthletes");
     for(let athleteDiv of deleteAthletes){
         athleteDiv.remove();
-    }
+    };
 };
 
 function renderNewAthletes(raceEventArr){
+    const parentDiv = document.getElementById("athleteDiv");
     for(const athleteObj of raceEventArr){
-        const parentDiv = document.getElementById("athleteDiv");
         const newDiv = document.createElement("div");
         newDiv.id = athleteObj.id;
-        newDiv.classList.add(athleteObj.event, 'allAthletes');
+        newDiv.className = "allAthletes";
         parentDiv.appendChild(newDiv);
 
         let h3 = document.createElement("h3");
         h3.textContent = athleteObj.event;
-        let infoDiv = document.createElement("main");
-        infoDiv.className = "athleteCard";
-        newDiv.append(h3, infoDiv);
+        let infoMain = document.createElement("main");
+        infoMain.className = "athleteCard";
+        newDiv.append(h3, infoMain);
 
         let divPart1 = document.createElement("div");
         divPart1.id = "imgDiv";
@@ -104,11 +104,12 @@ function renderNewAthletes(raceEventArr){
         let divPart3 = document.createElement("div");
         divPart3.id = "closeDiv";
         divPart3.className = "athleteInfo";
-        infoDiv.append(divPart1, divPart2, divPart3);
+        infoMain.append(divPart1, divPart2, divPart3);
 
         let imgDiv1 = document.createElement("div");
         let img = document.createElement("img");
         img.src = athleteObj.image;
+        img.alt = "Athlete Profile Picture";
         imgDiv1.appendChild(img);
 
         let imgDiv2 = document.createElement("div");
@@ -133,7 +134,7 @@ function renderNewAthletes(raceEventArr){
 
         let buttonId = athleteObj.id;
         closeBtn(buttonId);
-    }   
+    };   
 };
 
 function closeBtn(buttonId){
@@ -142,4 +143,4 @@ function closeBtn(buttonId){
     closeBtn.addEventListener("click", ()=>{
         athleteCard.remove();
     });
-}
+};
