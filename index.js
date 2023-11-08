@@ -16,16 +16,16 @@ toggle.addEventListener("change", ()=> {
 });
 
 const btnChoiceArr = document.getElementsByClassName("btnChoice");
-for(let btnObj of btnChoiceArr){
-    btnObj.addEventListener('mouseover', function(){
-        btnObj.style.backgroundColor = 'rgb(62, 61, 61)';
-        btnObj.style.color = 'white';
+for(let button of btnChoiceArr){
+    button.addEventListener('mouseover', function(){
+        button.style.backgroundColor = 'rgb(62, 61, 61)';
+        button.style.color = 'white';
     })
-    btnObj.addEventListener('mouseout', function(){
-        btnObj.style.backgroundColor = "";
-        btnObj.style.color = "";
+    button.addEventListener('mouseout', function(){
+        button.style.backgroundColor = "";
+        button.style.color = "";
     })
-}
+};
 
 fetch('http://localhost:3000/athletes')
     .then((resp)=>resp.json())
@@ -46,7 +46,7 @@ function sortAthletesArr(athleteArr){
             eightHArr.push(athleteObj);
         }
     })
-}   
+};   
 
 let oneHArr = [];
 let twoHArr = [];
@@ -60,27 +60,19 @@ function attachBtnListeners(athleteArr){
     let fourHBtn = document.getElementById("fourH");
     let eightHBtn = document.getElementById("eightH");
 
-    allBtn.addEventListener("click", ()=>{
+    addListener(allBtn, athleteArr);
+    addListener(oneHBtn, oneHArr);
+    addListener(twoHBtn, twoHArr);
+    addListener(fourHBtn, fourHArr);
+    addListener(eightHBtn, eightHArr);
+};
+
+function addListener(button,array){
+    button.addEventListener("click", ()=>{
         deleteOldAthletes();
-        renderNewAthletes(athleteArr);
-    })
-    oneHBtn.addEventListener("click", ()=>{
-        deleteOldAthletes();
-        renderNewAthletes(oneHArr);
-    })
-    twoHBtn.addEventListener("click", ()=>{
-        deleteOldAthletes();
-        renderNewAthletes(twoHArr);
-    })
-    fourHBtn.addEventListener("click", ()=>{
-        deleteOldAthletes();
-        renderNewAthletes(fourHArr);
-    })
-    eightHBtn.addEventListener("click", ()=>{
-        deleteOldAthletes();
-        renderNewAthletes(eightHArr);
-    })
-}
+        renderNewAthletes(array);
+    });
+};
 
 function deleteOldAthletes(){
     const deleteAthletes = document.querySelectorAll(".allAthletes");
