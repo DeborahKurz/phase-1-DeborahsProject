@@ -15,19 +15,17 @@ toggle.addEventListener("change", ()=> {
     }
 });
 
-document.addEventListener("DOMContentLoaded", ()=>{
-    const btnChoiceArr = document.getElementsByClassName("btnChoice");
-    for(let btnObj of btnChoiceArr){
-        btnObj.addEventListener('mouseover', function(){
-            btnObj.style.backgroundColor = 'rgb(62, 61, 61)';
-            btnObj.style.color = 'white';
-        })
-        btnObj.addEventListener('mouseout', function(){
-            btnObj.style.backgroundColor = "";
-            btnObj.style.color = "";
-        })
-    }
-});
+const btnChoiceArr = document.getElementsByClassName("btnChoice");
+for(let btnObj of btnChoiceArr){
+    btnObj.addEventListener('mouseover', function(){
+        btnObj.style.backgroundColor = 'rgb(62, 61, 61)';
+        btnObj.style.color = 'white';
+    })
+    btnObj.addEventListener('mouseout', function(){
+        btnObj.style.backgroundColor = "";
+        btnObj.style.color = "";
+    })
+}
 
 fetch('http://localhost:3000/athletes')
     .then((resp)=>resp.json())
